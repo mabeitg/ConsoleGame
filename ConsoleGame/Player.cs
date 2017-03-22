@@ -8,7 +8,8 @@ namespace ConsoleGame
 {
     class Player
     {
-        //Variabler
+        //<---Variabler--->
+
         public string sprite = "o";
         public int positionX, positionY;
         private int velocityX, velocityY;

@@ -19,20 +19,24 @@ namespace ConsoleGame
             //Skapar objekt av typen Player.
             //Deklarerar först, initierar sedan
             Player mario = new Player();
+            Player mario2 = new Player();
+
             mario.positionX = 2;
             mario.positionY = 1;
 
+            //Tidtagning för att kolla koll på hur ofta spelet uppdateras
             Stopwatch gameTime = new Stopwatch();
             gameTime.Start();
+
             //Spel-loop
             while(true)
             {
-                if (gameTime.ElapsedMilliseconds >= 20)
+                if (gameTime.ElapsedMilliseconds >= 10)
                 {
-                    Console.Clear();
+                    Console.Clear();    //Tömmer skärmen
                     mario.Draw();
                     mario.Update();
-                    gameTime.Restart();
+                    gameTime.Restart(); //Startar om timern
                 }
             }            
         }
