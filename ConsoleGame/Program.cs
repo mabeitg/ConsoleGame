@@ -10,16 +10,18 @@ namespace ConsoleGame
 {
     class Program
     {
+        public static int WindowWidth = 200, WindowHeight = 50;
+
         static void Main(string[] args)
         {
+            
             //Ställer in fönstret
-            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+            Console.SetWindowSize(WindowWidth, WindowHeight);
             Console.CursorVisible = false;
 
             //Skapar objekt av typen Player.
             //Deklarerar först, initierar sedan
             Player mario = new Player();
-            Player mario2 = new Player();
 
             mario.positionX = 2;
             mario.positionY = 1;

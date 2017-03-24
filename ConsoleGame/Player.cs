@@ -14,13 +14,16 @@ namespace ConsoleGame
         public string sprite = "o";
         public int positionX, positionY;
         private int velocityX, velocityY;
-        private int health;
+        private int health=7;
 
         //<---Metoder--->
 
         //Ritar ut på skärmen
         public void Draw()
         {
+            Console.SetCursorPosition(0, 0);
+            Console.Write(Healthbar());
+
             Console.SetCursorPosition(positionX, positionY);
             Console.Write(sprite);
         }
@@ -54,6 +57,23 @@ namespace ConsoleGame
                 velocityX = 0;
                 velocityY = 0;
             }
+        }
+        
+        //Gör en healthbar med x för liv och - för inte liv
+        private string Healthbar()
+        {
+            string healthbar = "";
+
+            for(int i =0;i<health;i++)
+            {
+                healthbar += "x";
+            }
+
+            for(int i =0;i<10-health;i++)
+            {
+                healthbar += "-";
+            }
+            return healthbar;
         }
     }
 }
