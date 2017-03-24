@@ -13,6 +13,7 @@ namespace ConsoleGame
 
         public string sprite = "o";
         public int positionX, positionY;
+        private int oldPositionX, oldPositionY;
         private int velocityX, velocityY;
         private int health=7;
 
@@ -24,6 +25,11 @@ namespace ConsoleGame
             Console.SetCursorPosition(0, 0);
             Console.Write(Healthbar());
 
+            //Suddar i gamla positionen
+            Console.SetCursorPosition(oldPositionX, oldPositionY);
+            Console.Write(" ");
+            
+            //Ritar i nya positionen
             Console.SetCursorPosition(positionX, positionY);
             Console.Write(sprite);
         }
@@ -48,6 +54,10 @@ namespace ConsoleGame
 
                 if (pressedKey == 'd')
                     velocityX = 1;
+
+                //Lagrar gamla positionen
+                oldPositionX = positionX;
+                oldPositionY = positionY;
 
                 //Flyttar spelaren
                 positionX += velocityX;

@@ -33,9 +33,9 @@ namespace ConsoleGame
             //Spel-loop
             while(true)
             {
-                if (gameTime.ElapsedMilliseconds >= 10)
+                if (gameTime.ElapsedMilliseconds >= 20)
                 {
-                    Console.Clear();    //Tömmer skärmen
+                    //Console.Clear();    //Tömmer skärmen
                     mario.Draw();
                     mario.Update();
                     gameTime.Restart(); //Startar om timern
