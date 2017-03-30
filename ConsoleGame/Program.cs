@@ -23,8 +23,8 @@ namespace ConsoleGame
             //Deklarerar först, initierar sedan
             Player mario = new Player();
 
-            mario.positionX = 2;
-            mario.positionY = 1;
+            mario.PositionX = 2;
+            mario.PositionY = 1;
 
             Enemy koopa = new Enemy();
             koopa.positionX = 3;

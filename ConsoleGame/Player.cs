@@ -10,12 +10,86 @@ namespace ConsoleGame
     class Player
     {
         //<---Variabler--->
-
         public string sprite = "o";
-        public int positionX, positionY;
+        private int positionX, positionY;
         private int oldPositionX, oldPositionY;
         private int velocityX, velocityY;
         private int health=7;
+
+        //<---Egenskaper/Properties--->
+        //En egenskap är en eller två metoder som utifrån
+        //"ser ut" som variabler
+
+        public int PositionX
+        {
+            get
+            {
+                return positionX;
+            }
+            set
+            {
+                if (value >= 0)
+                    positionX = value;
+                else
+                    positionX = 0;
+            }
+        }
+
+        public int PositionY
+        {
+            get
+            {
+                return positionY;
+            }
+            set
+            {
+                if (value >= 0)
+                    positionY = value;
+                else
+                    positionY = 0;
+            }
+        }
+
+        public int Health
+        { get { return health; } }
+
+        public bool IsAlive
+        {
+            get
+            {
+                if (health > 0)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+        public double K
+        {
+            get
+            {
+                return velocityY / (double)velocityX;
+            }
+        }
+
+        private string Healthbar
+        {
+            get
+            {
+                string healthbar = "";
+
+                for (int i = 0; i < health; i++)
+                {
+                    healthbar += "x";
+                }
+
+                for (int i = 0; i < 10 - health; i++)
+                {
+                    healthbar += "-";
+                }
+                return healthbar;
+            }
+        }
 
         //<---Metoder--->
 
@@ -23,7 +97,7 @@ namespace ConsoleGame
         public void Draw()
         {
             Console.SetCursorPosition(0, 0);
-            Console.Write(Healthbar());
+            Console.Write(Healthbar);
 
             //Suddar i gamla positionen
             Console.SetCursorPosition(oldPositionX, oldPositionY);
@@ -70,7 +144,7 @@ namespace ConsoleGame
         }
         
         //Gör en healthbar med x för liv och - för inte liv
-        private string Healthbar()
+/*        private string Healthbar()
         {
             string healthbar = "";
 
@@ -85,5 +159,6 @@ namespace ConsoleGame
             }
             return healthbar;
         }
+        */
     }
 }
