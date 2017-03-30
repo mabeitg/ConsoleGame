@@ -26,6 +26,10 @@ namespace ConsoleGame
             mario.positionX = 2;
             mario.positionY = 1;
 
+            Enemy koopa = new Enemy();
+            koopa.positionX = 3;
+            koopa.positionY = 2;
+
             //Tidtagning för att kolla koll på hur ofta spelet uppdateras
             Stopwatch gameTime = new Stopwatch();
             gameTime.Start();
@@ -38,6 +42,9 @@ namespace ConsoleGame
                     //Console.Clear();    //Tömmer skärmen
                     mario.Draw();
                     mario.Update();
+                    koopa.Draw();
+                    koopa.Update();
+
                     gameTime.Restart(); //Startar om timern
                 }
             }            
