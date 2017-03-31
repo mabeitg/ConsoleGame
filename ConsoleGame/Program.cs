@@ -12,9 +12,10 @@ namespace ConsoleGame
     {
         public static int WindowWidth = 200, WindowHeight = 50;
 
+
         static void Main(string[] args)
         {
-            
+ 
             //Ställer in fönstret
             Console.SetWindowSize(WindowWidth, WindowHeight);
             Console.CursorVisible = false;
@@ -26,9 +27,23 @@ namespace ConsoleGame
             mario.PositionX = 2;
             mario.PositionY = 1;
 
-            Enemy koopa = new Enemy();
-            koopa.positionX = 3;
-            koopa.positionY = 2;
+            List<Enemy> enemies = new List<Enemy>();
+            Random rng = new Random();//Slumpgenerator
+
+            for (int i = 0; i < 200; i++)
+            {
+                Enemy newEnemy = new Enemy();
+                newEnemy.positionX = rng.Next(0, 181);
+                newEnemy.positionY = rng.Next(0, 40);
+
+                enemies.Add(newEnemy);
+            }
+
+
+            //Enemy koopa = new Enemy();
+            //koopa.positionX = 10;
+            //koopa.positionY = 20; 
+
 
             //Tidtagning för att kolla koll på hur ofta spelet uppdateras
             Stopwatch gameTime = new Stopwatch();
@@ -42,8 +57,18 @@ namespace ConsoleGame
                     //Console.Clear();    //Tömmer skärmen
                     mario.Draw();
                     mario.Update();
-                    koopa.Draw();
-                    koopa.Update();
+
+                    //for (int i = 0; i < enemies.Count; i++)
+                    //{
+                    //    enemies[i].Update();
+                    //    enemies[i].Draw();
+                    //}
+
+                    foreach(Enemy enemy in enemies)
+                    {
+                        enemy.Update();
+                        enemy.Draw();
+                    }
 
                     gameTime.Restart(); //Startar om timern
                 }

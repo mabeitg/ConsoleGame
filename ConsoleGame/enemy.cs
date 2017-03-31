@@ -43,17 +43,26 @@ namespace ConsoleGame
             positionY += velocityY;
 
             if (positionX < 0)
+            {
+                velocityX = -velocityX;
                 positionX = 0;
-
+            }
             if (positionY < 0)
+            {
+                velocityY = -velocityY;
                 positionY = 0;
-
+            }
             if (positionX > Program.WindowWidth - 1)
+            {
+                velocityX = -velocityX;
                 positionX = Program.WindowWidth - 2;
+            }
 
             if (positionY > Program.WindowHeight - 1)
-                positionY = Program.WindowHeight - 1;
-
+            {
+                velocityY = -velocityY;
+                positionY = Program.WindowHeight - 2;
+            }
         }
     }
 }

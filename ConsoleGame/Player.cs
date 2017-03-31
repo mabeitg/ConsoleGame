@@ -9,6 +9,7 @@ namespace ConsoleGame
 {
     class Player
     {
+        
         //<---Variabler--->
         public string sprite = "o";
         private int positionX, positionY;
@@ -50,8 +51,8 @@ namespace ConsoleGame
             }
         }
 
-        public int Health
-        { get { return health; } }
+        //Så här, på en rad, kan man också skriva egenskaper
+        public int Health { get { return health; } }
 
         public bool IsAlive
         {
