@@ -38,10 +38,11 @@ namespace ConsoleGame
             oldPositionX = positionX;
             oldPositionY = positionY;
 
-            //Flyttar spelaren
+            //Flyttar fienden
             positionX += velocityX;
             positionY += velocityY;
 
+            //Studs mot väggar
             if (positionX < 0)
             {
                 velocityX = -velocityX;

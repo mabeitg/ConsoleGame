@@ -27,9 +27,11 @@ namespace ConsoleGame
             mario.PositionX = 2;
             mario.PositionY = 1;
 
-            List<Enemy> enemies = new List<Enemy>();
+            List<Enemy> enemies = new List<Enemy>();//Lista med fiender
+
             Random rng = new Random();//Slumpgenerator
 
+            //Lägger till fiender i listan
             for (int i = 0; i < 200; i++)
             {
                 Enemy newEnemy = new Enemy();
@@ -57,13 +59,16 @@ namespace ConsoleGame
                     //Console.Clear();    //Tömmer skärmen
                     mario.Draw();
                     mario.Update();
-
+                    
+                    //Loopar igenom fiendelistan och uppdaterar och ritar varje fiende i listan
                     //for (int i = 0; i < enemies.Count; i++)
                     //{
                     //    enemies[i].Update();
                     //    enemies[i].Draw();
                     //}
 
+                    //Smidigt sätt att loopa igenom hel lista. 
+                    //foreach(Typ tempNamn in listansNamn)
                     foreach(Enemy enemy in enemies)
                     {
                         enemy.Update();
